@@ -26,7 +26,7 @@ public class WeatherAnalyser extends ElementListAnalyser {
 
             List<WeatherDataElement> dataList = elementStringList.stream()
                     .skip(1)
-                    .map(line -> weatherDataElementParser.parseLineToWeatherDataElement(line))
+                    .map(line -> weatherDataElementParser.parseToDataElement(line))
                     .collect(Collectors.toList());
 
             for (WeatherDataElement el : dataList) {

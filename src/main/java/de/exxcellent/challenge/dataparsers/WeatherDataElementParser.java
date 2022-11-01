@@ -2,12 +2,13 @@ package de.exxcellent.challenge.dataparsers;
 
 import de.exxcellent.challenge.model.WeatherDataElement;
 
-public class WeatherDataElementParser {
-    public WeatherDataElement parseLineToWeatherDataElement(String line) {
-        String[] splitLine = line.split(",");
+public class WeatherDataElementParser implements IParseElements<WeatherDataElement> {
+    @Override
+    public WeatherDataElement parseToDataElement(String element) {
+        String[] splitLine = element.split(",");
 
         if (splitLine.length != 14) {
-            throw new IllegalArgumentException(String.format("line: %s contains %d arguments. It has to contain 14.", line, splitLine.length));
+            throw new IllegalArgumentException(String.format("line: %s contains %d arguments. It has to contain 14.", element, splitLine.length));
         }
 
         WeatherDataElement result = new WeatherDataElement(
