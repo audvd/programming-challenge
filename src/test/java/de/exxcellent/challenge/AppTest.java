@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.net.URL;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Example JUnit 5 test case.
@@ -23,10 +22,10 @@ class AppTest {
     }
 
     @Test
-    void findSmallestTempSpreadDayOutputsCorrectDayTest() {
+    void findSmallestTempSpreadDayOutputsCorrectDayTest() throws IOException {
         // Arrange
         WeatherAnalyser sut = new WeatherAnalyser();
-        URL weatherFile = getClass().getClassLoader().getResource("weather.csv");
+        URL weatherFile = getClass().getResource("/de/exxcellent/challenge/weather.csv");
 
         // Act
         int result = sut.findSmallestTempSpreadDay(weatherFile);
@@ -41,18 +40,7 @@ class AppTest {
         WeatherAnalyser sut = new WeatherAnalyser();
 
         // Act & Assert
-        assertThrows(IOException.class, () -> sut.findSmallestTempSpreadDay(null), "");
-    }
-
-    @Test
-    void findSmallestTempSpreadDayThrowsExceptionOnInvalidInputTest() {
-        // Arrange
-        WeatherAnalyser sut = new WeatherAnalyser();
-        URL invalidFile = getClass().getClassLoader().getResource("filedoesnotexist.csv");
-
-        // Act & Assert
-        assertThrows(IOException.class, () -> sut.findSmallestTempSpreadDay(invalidFile));
-
+        assertThrows(IllegalArgumentException.class, () -> sut.findSmallestTempSpreadDay(null), "");
     }
 
     @Test
