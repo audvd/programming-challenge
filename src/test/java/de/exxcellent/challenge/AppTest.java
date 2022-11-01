@@ -3,7 +3,10 @@ package de.exxcellent.challenge;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.net.URL;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Example JUnit 5 test case.
@@ -19,8 +22,41 @@ class AppTest {
     }
 
     @Test
-    void aPointlessTest() {
-        assertEquals("successful", successLabel, "My expectations were not met");
+    void findSmallestTempSpreadDayOutputsCorrectDayTest() {
+        // Arrange
+        WeatherAnalyser sut = new WeatherAnalyser();
+        URL weatherFile = getClass().getClassLoader().getResource("weather.csv");
+
+        // Act
+        int result = sut.findSmallestTempSpreadDay(weatherFile);
+
+        // Assert
+        assertEquals(14, result, "Correct day was output.");
+    }
+
+    @Test
+    void findSmallestTempSpreadDayThrowsExceptionOnNullInputTest() {
+        // Arrange
+        WeatherAnalyser sut = new WeatherAnalyser();
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> sut.findSmallestTempSpreadDay(null), "");
+    }
+
+    @Test
+    void findSmallestTempSpreadDayThrowsExceptionOnInvalidInputTest() {
+        // Arrange
+        WeatherAnalyser sut = new WeatherAnalyser();
+        URL invalidFile = getClass().getClassLoader().getResource("filedoesnotexist.csv");
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> sut.findSmallestTempSpreadDay(invalidFile));
+
+    }
+
+    @Test
+    void runWeather() {
+        App.main("--weather", "weather.csv");
     }
 
     @Test
