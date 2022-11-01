@@ -1,5 +1,8 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.analysers.WeatherAnalyser;
+import de.exxcellent.challenge.fileparsers.CsvToElementStringParser;
+import de.exxcellent.challenge.fileparsers.IParseStringToElementStringList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Benjamin Schmid <benjamin.schmid@exxcellent.de>
  */
 class AppTest {
-
-    private String successLabel = "not successful";
+    
+    private IParseStringToElementStringList parser;
 
     @BeforeEach
     void setUp() {
-        successLabel = "successful";
+        parser = new CsvToElementStringParser();
     }
 
     @Test
@@ -28,7 +31,7 @@ class AppTest {
         URL weatherFile = getClass().getResource("/de/exxcellent/challenge/weather.csv");
 
         // Act
-        int result = sut.findSmallestTempSpreadDay(weatherFile);
+        int result = sut.findSmallestTempSpreadDay(weatherFile, parser);
 
         // Assert
         assertEquals(14, result, "Correct day was output.");
@@ -40,7 +43,7 @@ class AppTest {
         WeatherAnalyser sut = new WeatherAnalyser();
 
         // Act & Assert
-        assertThrows(IllegalArgumentException.class, () -> sut.findSmallestTempSpreadDay(null), "");
+        assertThrows(IllegalArgumentException.class, () -> sut.findSmallestTempSpreadDay(null, parser), "");
     }
 
     @Test

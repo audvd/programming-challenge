@@ -1,4 +1,4 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.model;
 
 public class WeatherDataElement {
     private final int day;
