@@ -1,10 +1,6 @@
 package de.exxcellent.challenge;
 
-import jdk.jshell.spi.ExecutionControl;
-
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -20,7 +16,7 @@ public class WeatherAnalyser {
 
         try {
             List<String> weatherLines = Files.readAllLines(Paths.get(path.toURI()));
-            FileParser parser = new FileParser();
+            LineParser parser = new LineParser();
 
             List<WeatherDataElement> dataList = weatherLines.stream()
                     .skip(1)

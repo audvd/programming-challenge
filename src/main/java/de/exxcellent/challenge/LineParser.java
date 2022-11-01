@@ -1,6 +1,6 @@
 package de.exxcellent.challenge;
 
-public class FileParser {
+public class LineParser {
     public WeatherDataElement parseLineToWeatherDataElement(String line) {
         String[] splitLine = line.split(",");
 
