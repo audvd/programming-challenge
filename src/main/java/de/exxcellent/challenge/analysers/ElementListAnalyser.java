@@ -11,6 +11,10 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public abstract class ElementListAnalyser {
+    public abstract int analyse(URL path, IParseStringToElementStringList elementStringListParser) throws IOException;
+
+    public abstract void writeOutput(int result);
+
     public <T extends IParseStringToElementStringList> List<String> getListOfElementsToAnalyse(URL path, IParseStringToElementStringList parser) throws IOException, URISyntaxException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         String fileContent = Files.readString(Paths.get(path.toURI()));
         List<String> elementStringList = parser.parseFileToElementStringList(fileContent);

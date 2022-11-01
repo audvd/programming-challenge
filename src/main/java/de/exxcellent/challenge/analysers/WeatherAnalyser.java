@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WeatherAnalyser extends ElementListAnalyser {
-    public int findSmallestTempSpreadDay(URL path, IParseStringToElementStringList elementStringListParser) throws IOException {
+    @Override
+    public int analyse(URL path, IParseStringToElementStringList elementStringListParser) throws IOException {
         if (path == null || elementStringListParser == null) {
             throw new IllegalArgumentException("URL and elementStringListParser must not be null");
         }
@@ -52,5 +53,10 @@ public class WeatherAnalyser extends ElementListAnalyser {
         }
 
         return -1;
+    }
+
+    @Override
+    public void writeOutput(int result) {
+        System.out.printf("Day with smallest temperature spread : %s%n", result);
     }
 }
