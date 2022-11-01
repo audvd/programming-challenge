@@ -3,6 +3,7 @@ package de.exxcellent.challenge;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -40,7 +41,7 @@ class AppTest {
         WeatherAnalyser sut = new WeatherAnalyser();
 
         // Act & Assert
-        assertThrows(IllegalArgumentException.class, () -> sut.findSmallestTempSpreadDay(null), "");
+        assertThrows(IOException.class, () -> sut.findSmallestTempSpreadDay(null), "");
     }
 
     @Test
@@ -50,7 +51,7 @@ class AppTest {
         URL invalidFile = getClass().getClassLoader().getResource("filedoesnotexist.csv");
 
         // Act & Assert
-        assertThrows(IllegalArgumentException.class, () -> sut.findSmallestTempSpreadDay(invalidFile));
+        assertThrows(IOException.class, () -> sut.findSmallestTempSpreadDay(invalidFile));
 
     }
 
