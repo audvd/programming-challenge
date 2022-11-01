@@ -16,15 +16,4 @@ public abstract class ElementListAnalyser {
         List<String> elementStringList = parser.parseFileToElementStringList(fileContent);
         return elementStringList;
     }
-
-    /*
-    public <T extends IParseStringToElementStringList> List<String> getListOfElementsToAnalyse(URL path, Class<T> parser) throws IOException, URISyntaxException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
-        String fileContent = Files.readString(Paths.get(path.toURI()));
-        //IParseStringToElementStringList fileToElementStringListParser = new CsvToElementStringParser();
-        IParseStringToElementStringList fileToElementStringListParser = parser.getDeclaredConstructor(new Class[0]).newInstance(new Class[0]);
-        List<String> elementStringList = fileToElementStringListParser.parseFileToElementStringList(fileContent);
-        return elementStringList;
-    }
-    */
-
 }
