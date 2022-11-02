@@ -8,7 +8,7 @@ public class CsvToElementStringParser implements IParseStringToElementStringList
 
     @Override
     public List<String> parseFileToElementStringList(String input) {
-        String[] stringLines = input.split("\\n");
+        String[] stringLines = input.split("((\\r)?\\n|\\r(\\n)?)");
         return Arrays.asList(stringLines);
     }
 }

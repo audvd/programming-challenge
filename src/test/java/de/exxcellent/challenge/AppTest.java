@@ -1,5 +1,6 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.analysers.FootballAnalyser;
 import de.exxcellent.challenge.analysers.WeatherAnalyser;
 import de.exxcellent.challenge.fileparsers.CsvToElementStringParser;
 import de.exxcellent.challenge.fileparsers.IParseStringToElementStringList;
@@ -49,8 +50,25 @@ class AppTest {
     }
 
     @Test
-    void footballAnalyserAnalyseReturnsCorrectTeam() {
+    void footballAnalyserAnalyseReturnsCorrectTeam() throws IOException {
+        // Arrange
+        FootballAnalyser sut = new FootballAnalyser();
+        URL footballFile = getClass().getResource("/de/exxcellent/challenge/football.csv");
 
+        // Act
+        String result = sut.analyse(footballFile, parser);
+
+        // Assert
+        assertEquals("Aston_Villa", result, "Correct team was output.");
+    }
+
+    @Test
+    void footballAnalyserAnalyseThrowsExceptionOnNullInputTest() {
+        // Arrange
+        FootballAnalyser sut = new FootballAnalyser();
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> sut.analyse(null, parser), "");
     }
 
     @Test
