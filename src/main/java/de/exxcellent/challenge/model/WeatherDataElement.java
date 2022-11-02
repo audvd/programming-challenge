@@ -44,4 +44,48 @@ public class WeatherDataElement {
     public int getMnt() {
         return mnt;
     }
+
+    public int getAvt() {
+        return avt;
+    }
+
+    public float getAvdp() {
+        return avdp;
+    }
+
+    public int getOnehrp_tpcdn() {
+        return onehrp_tpcdn;
+    }
+
+    public int getPdir() {
+        return pdir;
+    }
+
+    public float getAvsp() {
+        return avsp;
+    }
+
+    public int getDir() {
+        return dir;
+    }
+
+    public int getMxs() {
+        return mxs;
+    }
+
+    public float getSkyc() {
+        return skyc;
+    }
+
+    public int getMxr() {
+        return mxr;
+    }
+
+    public int getMn() {
+        return mn;
+    }
+
+    public float getR_avslp() {
+        return r_avslp;
+    }
 }
