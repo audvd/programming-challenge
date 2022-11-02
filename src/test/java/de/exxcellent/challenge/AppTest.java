@@ -27,7 +27,7 @@ class AppTest {
     }
 
     @Test
-    void findSmallestTempSpreadDayOutputsCorrectDayTest() throws IOException {
+    void weatherAnalyserAnalyseReturnsCorrectDayTest() throws IOException {
         // Arrange
         WeatherAnalyser sut = new WeatherAnalyser();
         URL weatherFile = getClass().getResource("/de/exxcellent/challenge/weather.csv");
@@ -40,12 +40,17 @@ class AppTest {
     }
 
     @Test
-    void findSmallestTempSpreadDayThrowsExceptionOnNullInputTest() {
+    void weatherAnalyserAnalyseThrowsExceptionOnNullInputTest() {
         // Arrange
         WeatherAnalyser sut = new WeatherAnalyser();
 
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> sut.analyse(null, parser), "");
+    }
+
+    @Test
+    void footballAnalyserAnalyseReturnsCorrectTeam() {
+
     }
 
     @Test
