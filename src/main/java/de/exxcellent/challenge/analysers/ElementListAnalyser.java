@@ -1,9 +1,7 @@
 package de.exxcellent.challenge.analysers;
 
 import de.exxcellent.challenge.dataparsers.IParseElements;
-import de.exxcellent.challenge.dataparsers.WeatherDataElementParser;
 import de.exxcellent.challenge.fileparsers.IParseStringToElementStringList;
-import de.exxcellent.challenge.model.WeatherDataElement;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;

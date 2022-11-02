@@ -1,7 +1,5 @@
 package de.exxcellent.challenge.model;
 
-import de.exxcellent.challenge.dataparsers.FootballElementParser;
-
 public class FootballElement {
     private String team;
     private int games;

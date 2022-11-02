@@ -6,11 +6,8 @@ import de.exxcellent.challenge.analysers.WeatherAnalyser;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import de.exxcellent.challenge.fileparsers.CsvToElementStringParser;
 import de.exxcellent.challenge.fileparsers.IParseStringToElementStringList;
@@ -66,7 +63,5 @@ public final class App {
 
         URL inputFile = App.class.getResource(String.format("/de/exxcellent/challenge/%s", input));
         analyser.writeOutput(analyser.analyse(inputFile, elementStringParser));
-        //String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
-        //System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
     }
 }

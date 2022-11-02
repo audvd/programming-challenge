@@ -1,6 +1,5 @@
 package de.exxcellent.challenge.fileparsers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
