@@ -11,15 +11,14 @@ import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class WeatherAnalyser extends ElementListAnalyser {
+public class WeatherAnalyser extends ElementListAnalyser<Integer> {
     @Override
-    public int analyse(URL path, IParseStringToElementStringList elementStringListParser) throws IOException {
+    public Integer analyse(URL path, IParseStringToElementStringList elementStringListParser) throws IOException {
         if (path == null || elementStringListParser == null) {
             throw new IllegalArgumentException("URL and elementStringListParser must not be null");
         }
 
         try {
-            //List<String> elementStringList = getListOfElementsToAnalyse(path, CsvToElementStringParser.class);
             List<String> elementStringList = getListOfElementsToAnalyse(path, elementStringListParser);
 
             WeatherDataElementParser weatherDataElementParser = new WeatherDataElementParser();
@@ -56,7 +55,7 @@ public class WeatherAnalyser extends ElementListAnalyser {
     }
 
     @Override
-    public void writeOutput(int result) {
+    public void writeOutput(Integer result) {
         System.out.printf("Day with smallest temperature spread : %s%n", result);
     }
 }

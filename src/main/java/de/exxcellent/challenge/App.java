@@ -61,9 +61,7 @@ public final class App {
         }
 
         URL inputFile = App.class.getResource(String.format("/de/exxcellent/challenge/%s", input));
-        int output = analyser.analyse(inputFile, elementStringParser);
-
-        analyser.writeOutput(output);
+        analyser.writeOutput(analyser.analyse(inputFile, elementStringParser));
         //String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
         //System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
     }
