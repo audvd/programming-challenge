@@ -1,6 +1,7 @@
 package de.exxcellent.challenge;
 
 import de.exxcellent.challenge.analysers.ElementListAnalyser;
+import de.exxcellent.challenge.analysers.FootballAnalyser;
 import de.exxcellent.challenge.analysers.WeatherAnalyser;
 
 import java.io.IOException;
@@ -44,6 +45,9 @@ public final class App {
         switch (taskArg) {
             case "--weather":
                 analyser = new WeatherAnalyser();
+                break;
+            case "--football":
+                analyser = new FootballAnalyser();
                 break;
             default:
                 System.out.println("First argument was invalid.\nAbort.");
