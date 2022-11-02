@@ -37,47 +37,4 @@ public class FootballAnalyser extends ElementListAnalyser<FootballElement, Strin
     public void writeOutput(String result) {
         System.out.printf("Team with smallest goal spread: %s%n", result);
     }
-    /*
-    @Override
-    public String analyse(URL path, IParseStringToElementStringList elementStringListParser) throws IOException {
-        if (path == null || elementStringListParser == null) {
-            throw new IllegalArgumentException("URL and elementStringListParser must not be null");
-        }
-
-        try {
-            List<String> elementStringList = getListOfElementsToAnalyse(path, elementStringListParser);
-
-            FootballElementParser footballElementParser = new FootballElementParser();
-            FootballElement minDiffElement = null;
-
-            List<FootballElement> dataList = elementStringList.stream()
-                    .skip(1)
-                    .map(line -> footballElementParser.parseToDataElement(line))
-                    .collect(Collectors.toList());
-
-            for (FootballElement el : dataList) {
-                if (minDiffElement == null || Math.abs(minDiffElement.getGoals() - minDiffElement.getGoals_allowed()) > Math.abs(el.getGoals() - el.getGoals_allowed())) {
-                    minDiffElement = el;
-                }
-            }
-
-            if (minDiffElement != null) {
-                String result = minDiffElement.getTeam();
-                return result;
-            }
-        } catch (URISyntaxException e) {
-            throw new IllegalArgumentException("Passed URL could not be converted to URI");
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }*/
-
 }
