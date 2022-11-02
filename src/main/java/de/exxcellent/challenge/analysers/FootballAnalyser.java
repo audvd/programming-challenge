@@ -11,6 +11,7 @@ public class FootballAnalyser extends ElementListAnalyser<FootballElement, Strin
         return new FootballElementParser();
     }
 
+    // Check for team with minimal goal difference
     @Override
     public FootballElement compareElements(FootballElement min, FootballElement currentElement) {
         if (min == null || Math.abs(min.getGoals() - min.getGoals_allowed()) > Math.abs(currentElement.getGoals() - currentElement.getGoals_allowed())) {

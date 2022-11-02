@@ -2,7 +2,11 @@ package de.exxcellent.challenge.dataparsers;
 
 import de.exxcellent.challenge.model.FootballElement;
 
+// Parses a one-entity string into a FootballElement
+
 public class FootballElementParser implements IParseElements<FootballElement> {
+
+    // Current restriction: This method only works for a csv-style one-entity string.
     @Override
     public FootballElement parseToDataElement(String element) {
         String[] splitLine = element.split(",");

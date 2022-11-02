@@ -10,6 +10,7 @@ public class WeatherAnalyser extends ElementListAnalyser<WeatherDataElement, Int
         return new WeatherDataElementParser();
     }
 
+    // Check for minimum temperature spread on a day
     @Override
     public WeatherDataElement compareElements(WeatherDataElement min, WeatherDataElement currentElement) {
         if (min == null || min.getMxt() - min.getMnt() > currentElement.getMxt() - currentElement.getMnt()) {

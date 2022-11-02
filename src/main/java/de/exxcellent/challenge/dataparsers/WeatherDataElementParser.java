@@ -2,7 +2,11 @@ package de.exxcellent.challenge.dataparsers;
 
 import de.exxcellent.challenge.model.WeatherDataElement;
 
+// Parses a one-entity string into a WeatherDataElement
+
 public class WeatherDataElementParser implements IParseElements<WeatherDataElement> {
+
+    // Current restriction: This method only works for a csv-style one-entity string.
     @Override
     public WeatherDataElement parseToDataElement(String element) {
         String[] splitLine = element.split(",");
